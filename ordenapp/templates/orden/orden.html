@@ -1,6 +1,13 @@
 {% extends "base.html" %}
 
 {% block content %}
-Esta es mi orden del día
+<form action="{% url "orden_dia" %}" method='post'>
+    {% csrf_token %}
+    
+    {{form.as_p}}
+
+    <button type="submit">Agregar</button>
+
+</form>
 {% endblock content %}
 
