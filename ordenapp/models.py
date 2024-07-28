@@ -1,6 +1,5 @@
 
 from django.db import models
-from django.utils.html import mark_safe
 
 class OrdenDia(models.Model):
     name = models.CharField(max_length=50, verbose_name="name")
@@ -13,7 +12,7 @@ class OrdenDia(models.Model):
         return self.name
     
     class Meta:
-        db_table = "Orden"
+        db_table = "orden"
         ordering = ['-created_at']
 
 

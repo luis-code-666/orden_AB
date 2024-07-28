@@ -1,7 +1,7 @@
 from django.urls import path
-from .views import MiOrdenDelDia
 
+from . import views
 
 urlpatterns = [
-    path('', MiOrdenDelDia, name="orden_dia" )
+    path('', views.miOrdenDelDia, name="orden_dia" )
 ]

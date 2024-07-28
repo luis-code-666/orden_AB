@@ -9,7 +9,7 @@ from .forms import OrdenDiaForm
 from .models import OrdenDia
 
 # Create your views here.
-def MiOrdenDelDia(request):
+def miOrdenDelDia(request):
     if request.method == 'POST':
         form = OrdenDiaForm(request.POST, request.FILES)
         if form.is_valid():
@@ -23,7 +23,7 @@ def MiOrdenDelDia(request):
         form = OrdenDiaForm()
         data = {
             'form': form,
-            'zapatos': list_imagenes(request)
+            'orden': list_imagenes(request)
         }
     return render(request, 'orden/orden.html', data)
 

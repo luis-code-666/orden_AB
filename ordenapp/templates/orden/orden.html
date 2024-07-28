@@ -27,12 +27,15 @@
   
           <div class="col-md-6" style="border-left: 1px solid #ccc">
             <div class="row justify-content-md-center mi_scroll">
-              {% for zapato in zapatos %}
+              {% for orde in orden %}
               <div class="col-md-4 mb-3">
-                <p class="linea">{{ ordendia.name }}</p>
+                <p class="linea">{{ orde.name }}</p>
                 <img
                   style="width: 100%; max-width: 150px"
-                  src="{{ ordendia.ordendia.url }}"
+                  {% comment "" %}
+                   
+                  {% endcomment %}
+                  src="{{ orde.photo.urls }}"
                   class="rounded mx-auto d-block"
                   style="width: 100%; float: left; margin-right: 10px" />
               </div>
