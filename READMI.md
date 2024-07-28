@@ -1,4 +1,5 @@
 🔥 Guardar archivo imagen en Django Python 🐍
+https://github.com/urian121/Guardar-imagen-en-Django-Python/blob/master/project_core/settings.py
 1. Crear un entorno virtual, hay muchas formas
 Opción 1: Crear entorno virtual con el paquete virtualenv,
 puedes instalarlo de forma global en el sistema atraves de https://pypi.org/project/virtualenv/
