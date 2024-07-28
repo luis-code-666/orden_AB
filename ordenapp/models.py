@@ -3,16 +3,18 @@ from django.db import models
 from django.utils.html import mark_safe
 
 class OrdenDia(models.Model):
-    photo = models.ImageField(upload_to="logos", null=True, blank=True, verbose_name="foto")
+    name = models.CharField(max_length=50, verbose_name="name")
+    photo = models.ImageField(upload_to="images/", null=True, blank=True, verbose_name="foto")
+    created_at = models.DateTimeField(auto_now_add=True, blank=True, null=True)
+    updated = models.DateTimeField(auto_now_add=False, auto_now=True)
 
     def __str__(self):
         # Devuelve una cadena de texto, como el nombre del archivo o un identificador
-        return f"Orden del día {self.id}" if self.photo else "Sin Foto"
+        return self.name
+    
+    class Meta:
+        db_table = "Orden"
+        ordering = ['-created_at']
 
-    def photo_tag(self):
-        if self.photo:
-            return mark_safe(f'<img src="{self.photo.url}" width="350" height="350" />')
-        return "No Image"
 
-    photo_tag.short_description = 'Foto'
 

@@ -1,11 +1,7 @@
 from django.urls import path
 from .views import MiOrdenDelDia
-from django.conf import settings
-from django.conf.urls.static import static
+
 
 urlpatterns = [
-    path('orden/', MiOrdenDelDia.as_view(), name="orden_dia" )
+    path('', MiOrdenDelDia, name="orden_dia" )
 ]
-
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
