@@ -138,5 +138,6 @@ MEDIA_URL = '/media/'
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "tailwind"
 CRISPY_TEMPLATE_PACK = "tailwind"
-LOGIN_REDIRECT_URL = "imagen_orden_dia"
-LOGOUT_REDIRECT_URL = "imagen_orden_dia"
+LOGIN_REDIRECT_URL = "orden_dia"
+LOGOUT_REDIRECT_URL = "orden_dia"
+LOGIN_URL = "login"
