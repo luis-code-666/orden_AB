@@ -1,5 +1,4 @@
 ipython==8.26.0
-pillow==10.4.0
 sqlparse==0.4.4
 tzdata==2023.3
 asgiref==3.7.2

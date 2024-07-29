@@ -38,9 +38,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # Estylos instalados
+    'crispy_forms',
+    'crispy_tailwind',
     
     # Mis App 
     'ordenapp',
+    'users',
 ]
 
 MIDDLEWARE = [
@@ -131,3 +135,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # Es la URL que podemos usar en nuestras plantillas para referenciar las imagenes.
 MEDIA_URL = '/media/'
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "tailwind"
+CRISPY_TEMPLATE_PACK = "tailwind"
+LOGIN_REDIRECT_URL = "orden_dia"
