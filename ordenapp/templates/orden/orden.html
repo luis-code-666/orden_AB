@@ -30,14 +30,23 @@
               {% for orde in orden %}
               <div class="col-md-4 mb-3">
                 <p class="linea">{{ orde.name }}</p>
+                {% comment "" %}
                 <img
                   style="width: 100%; max-width: 150px"
-                  {% comment "" %}
-                   
-                  {% endcomment %}
                   src="{{ orde.photo.url }}"
+                  
                   class="rounded mx-auto d-block"
                   style="width: 100%; float: left; margin-right: 10px" />
+                  {% endcomment %}
+                  {% if orde.photo %}
+                    <img
+                      style="width: 100%; max-width: 150px"
+                      src="{{ orde.photo.url }}"
+                      class="rounded mx-auto d-block"
+                      style="width: 100%; float: left; margin-right: 10px" />
+                  {% else %}
+                    <p>No image available</p>
+                  {% endif %}
               </div>
               {% endfor %}
             </div>
