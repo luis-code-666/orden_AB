@@ -31,6 +31,17 @@ def miOrdenDelDia(request):
 def list_imagenes(request):
     return OrdenDia.objects.all()
 
+def imagenOrdenDia(request):
+    if request.method == 'GET':
+        form = OrdenDiaForm()
+        data = {
+            'form': form,
+            'orden': imagenes(request)
+        }
+    return render(request, 'orden/muestraImagen.html', data)
+
+def imagenes(request):
+    return OrdenDia.objects.all()
 
 """
 def list_imagenes(request):

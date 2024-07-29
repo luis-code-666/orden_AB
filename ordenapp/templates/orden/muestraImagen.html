@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container text-center fondodivarmada " style="border: 1px solid red">
+    <div class="row justify-content-md-center ">
+        <div class="col-md-12">
+          <h2 class="text-center mb-3 mt-3">
+            COMANDO GENERAL DE LA ARMADA BOLIVIANA
+            <hr />
+          </h2>
+        </div>
+    </div>
+    <div class="row justify-content-start galeria " >
+        <div class="col-md-5 " style="border: 1px solid red">
+            <div class="row justify-content-start mi_scroll">
+                {% for orde in orden %}
+                <div class="col-md-4 mb-3">
+                    <img
+                    style="width: 100%; max-width: 250px; float: left; margin-right: 10px"
+                    src="{{ orde.photo.url }}"
+                    class="rounded" />
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="col-md-5" style="border: 1px solid red">
+            <div class="row justify-content-start mi_scroll">
+                {% for orde in orden %}
+                <div class="col-md-4 mb-3">
+                    <img
+                    style="width: 100%; max-width: 250px; float: left; margin-right: 10px"
+                    src="{{ orde.photo.url }}"
+                    class="rounded" />
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+
+
