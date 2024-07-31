@@ -10,8 +10,15 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
-import os
 from pathlib import Path
+import os
+import environ
+
+# Declarar el env para el ambiente donde se cubrira las claves 
+env = environ.Env()
+environ.Env.read_env()
+
+ENVIROMENT = env
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -21,10 +28,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-qy05d+m$ld^p(nu%r5#%heoipw^o8ppkpkd(d$%v7c&8#hk@52'
+# esto se declara para que la llave secreta este escondido 
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# esto tambien se guarda para que este escondido esto funciona en render pero con el environ se realiza lo siguiente (DEBUG = os.environ.get('DEBUG'))
+DEBUG = 'RENDER' not in os.environ
 
 ALLOWED_HOSTS = []
 
@@ -38,6 +47,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'orden',
     # Estylos instalados
     'crispy_forms',
     'crispy_tailwind',
@@ -81,12 +91,17 @@ WSGI_APPLICATION = 'orden.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-DATABASES = {
+"""DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
+}"""
+
+DATABASES = {
+    "default": env.db("DATABASE_URL", default="postgresql:///orden"), 
 }
+DATABASES["default"]["ATOMIC_REQUESTS"] = True
 
 
 # Password validation
