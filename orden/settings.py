@@ -35,8 +35,13 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # esto tambien se guarda para que este escondido esto funciona en render pero con el environ se realiza lo siguiente (DEBUG = os.environ.get('DEBUG'))
 DEBUG = 'RENDER' not in os.environ
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '*'
+]
 
+RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
+if RENDER_EXTERNAL_HOSTNAME:
+    ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
 
 # Application definition
 
@@ -62,7 +67,7 @@ TAILWIND_APP_NAME = 'theme'
 INTERNAL_IPS = [
     "127.0.0.1",
 ]
-NPM_BIN_PATH = r"C:\Program Files\nodejs\npm.cmd"
+NPM_BIN_PATH = "/home/devel/.nvm/versions/node/v21.6.1/bin/npm"
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
