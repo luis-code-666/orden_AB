@@ -67,7 +67,8 @@ TAILWIND_APP_NAME = 'theme'
 INTERNAL_IPS = [
     "127.0.0.1",
 ]
-NPM_BIN_PATH = "/home/devel/.nvm/versions/node/v21.6.1/bin/npm"
+NPM_BIN_PATH = r"C:\Program Files\nodejs\npm.cmd"
+print(f"NPM_BIN_PATH: {NPM_BIN_PATH}")
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -103,17 +104,20 @@ WSGI_APPLICATION = 'orden.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-"""DATABASES = {
+"""
+"""
+DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
-}"""
-
+}
+""" 
 DATABASES = {
     "default": env.db("DATABASE_URL", default="postgresql:///orden"), 
 }
 DATABASES["default"]["ATOMIC_REQUESTS"] = True
+"""
 
 PASSWORD_HASHERS = [
     # https://docs.djangoproject.com/en/dev/topics/auth/passwords/#using-argon2-with-django
