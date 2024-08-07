@@ -1,4 +1,4 @@
-#!/home/devel/Documentos/portafolio_Luis_Banda/orden_AB/venv/bin/python3.11
+#!/home/devel/Documentos/portafolio_Luis_Banda/orden_AB/venv/bin/python
 # -*- coding: utf-8 -*-
 import re
 import sys
